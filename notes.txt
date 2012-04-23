@@ -1,0 +1,26 @@
+Week 1, Day 1
+
+- Supervised learning: classification, regression problems; dataset includes
+  labels or "right" answers already.
+- Unsupervised learning: clustering; determining structure in data.
+
+Variables used throughout course:
+
+- $m$: number of items in dataset
+- $y$: the answer, output of function
+- $x$: inputs to function
+- $h$: $x -> y$, hypothesis function
+- $\theta$: coefficients of regression hypothesis function
+
+    Single-variable linear regression
+aka univariate      "      "
+
+Single-variable: single input. $x$ is a 1d vector.
+
+Find $h_\theta$ that's closest to the results.
+
+That is, find $\theta_0, \theta_1$ in $h_\theta = \theta_0 + \theta_1 x$ so that
+cost function
+$J_{\theta_0, \theta_1} =
+    1/2m \sum_{i=0}^m (h_\theta(x^(i)) - y)^2$
+is minimal.
