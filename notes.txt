@@ -1,5 +1,7 @@
 Week 1, Day 1
 
+Starting with ``Welcome''
+
 - Supervised learning: classification, regression problems; dataset includes
   labels or "right" answers already.
 - Unsupervised learning: clustering; determining structure in data.
@@ -26,7 +28,9 @@ $J_{\theta_0, \theta_1} =
 is minimal.
 
 
-Day 2
+Week 1, Day 2
+
+Starting with ``Cost Function - Intuition I''
 
 Hypothesis function $h_\theta(x)$, given fixed $\theta = \theta_0, \theta_1$,
 is a function of $x$. Cost function $J(\theta)$ is a function of $\theta$. With
