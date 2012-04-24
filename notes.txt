@@ -24,3 +24,37 @@ cost function
 $J_{\theta_0, \theta_1} =
     1/2m \sum_{i=0}^m (h_\theta(x^(i)) - y)^2$
 is minimal.
+
+
+Day 2
+
+Hypothesis function $h_\theta(x)$, given fixed $\theta = \theta_0, \theta_1$,
+is a function of $x$. Cost function $J(\theta)$ is a function of $\theta$. With
+1d $\theta=\theta_1$ and $h_\theta(x) = \theta_1 x$, $J$ looks like a parabola
+with its lowest point at the optimal value of $\theta$ to fit the data.
+
+With 2d $\theta=\theta_0, \theta_1$, cost function looks like a bowl with
+minimum at the lowest point.
+
+Contour plots: 2 input variables, lines at fixed output values
+
+## Gradient Descent
+
+Start with some $\theta_0, \theta_1$,
+move in the direction
+that makes $J(\theta_0, \theta_1)$ smaller,
+hopefully reach some minimum.
+
+Precisely:
+
+$\alpha$ is a scaling factor---larger values mean larger steps.
+$\deriv_j J(\theta_0, \theta_1)$ is derivative of $J$ wrt $\theta_j$.
+
+repeat until convergence {
+  $\theta_j := -\alpha \deriv_j J(\theta_0, \theta_1)$
+}
+
+Simultaneous update: compute right-hand side for all $j$, then do assigns. Don't
+use updated values in subsequent assigns; that's not gradient descent. It turns
+out to actually usually work, but it has stranger properties, and isn't what
+people are referring to.
