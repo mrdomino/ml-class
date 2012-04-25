@@ -84,3 +84,13 @@ $\deriv_0 J(\theta) = 1/m \sum_{i=0}^m h_\theta(x^(i)) - y^(i)$
 $\deriv_1 J(\theta) = 1/m \sum_{i=0}^m (h_\theta(x^(i)) - y^(i)) x^(i)$
 and happens to be convex, so gradient descent will always converge on the global
 optimum.
+
+This gives us Gradient Descent for Linear Regression.
+
+
+Two extensions of linear regression:
+
+1. Minimize the cost function in one step rather than applying gradient descent
+2. Work with larger numbers of features (e.g. house size, num bedrooms, ...).
+
+Linear algebra comes in handy for this.
