@@ -62,3 +62,25 @@ Simultaneous update: compute right-hand side for all $j$, then do assigns. Don't
 use updated values in subsequent assigns; that's not gradient descent. It turns
 out to actually usually work, but it has stranger properties, and isn't what
 people are referring to.
+
+
+Week 1, Day 3
+
+Starting with ``Gradient Descent Intuition''
+
+Gradient Descent takes the derivative of the cost function and applies a
+negative scaling factor. The derivative gives us the slope, so inverting it
+points us downards on the function; the scaling factor gives us movement in the
+direction of descent.
+
+For a fixed $\alpha$, gradient descent will take smaller steps as it gets closer
+to a local optimum because the slope will get smaller.
+
+
+Our specific cost function
+$J(\theta) = 1/(2m) \sum_{i=0}^m (h_\theta(x^(i)) - y^(i))^2$
+has partial derivatives
+$\deriv_0 J(\theta) = 1/m \sum_{i=0}^m h_\theta(x^(i)) - y^(i)$
+$\deriv_1 J(\theta) = 1/m \sum_{i=0}^m (h_\theta(x^(i)) - y^(i)) x^(i)$
+and happens to be convex, so gradient descent will always converge on the global
+optimum.
