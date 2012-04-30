@@ -94,3 +94,33 @@ Two extensions of linear regression:
 2. Work with larger numbers of features (e.g. house size, num bedrooms, ...).
 
 Linear algebra comes in handy for this.
+
+
+Week 2, Day 1
+
+Multiple features gives us
+
+## Multivariate Linear Regression
+
+where we can treat x_1, ..., x_n features as a column vector. If we add x_0 = 1
+to the vector, we get an n+1 x 1 vector, and our hypothesis function
+$h_\theta(x)$ is now simply $\theta^T x$.
+
+Now $J(\theta)$ is a function of the feature vectors.
+
+Our update rule is:
+
+$\theta_j := \theta_j - \alpha \deriv_(\theta_j) J(\theta)$,
+which still gives us the values we want in the single-variable class:
+$\theta_j := \theta_j - \alpha 1/m \sum_i=1^m (h_\theta(x^(i)) - y^(i)) x^(i)$.
+
+## Feature scaling
+
+In practice, gradient descent is much faster if all its features lie in
+approximately the same range, e.g. $-1 \le x \le 1$. We may also want to
+normalize to the mean of $x$.
+
+## Learning rate
+
+Too big: won't converge. Too small: converges slowly. Just right: big as
+possible before breaking.
