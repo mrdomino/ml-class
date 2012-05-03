@@ -138,3 +138,20 @@ Normal Equation
 $\theta = (X^T X)^(-1) X^T y$ gives us optimal theta values, but since computing
 inverses is O(n^3), it doesn't work as well for large n and we might want to use
 gradient descent instead.
+
+
+Octave
+
++ - * / ^
+== ~=
+&& || xor()
+
+ones
+zeros
+eye
+rand
+
+size(A) => [n p]
+
+size(A, 1) => n
+size(A, 2) => p
