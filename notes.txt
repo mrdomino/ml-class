@@ -155,3 +155,24 @@ size(A) => [n p]
 
 size(A, 1) => n
 size(A, 2) => p
+
+who: variables
+
+whos: variables with details
+
+load: load file into environment
+
+clear: remove var from env
+
+save: binary, save -ascii => readable
+
+A(:, 2) => 2nd column
+A(2, :) => 2nd row
+
+A([2 3], :) => 2nd and 3rd rows
+
+A = [A, [1; 3; 4]] => append column vector to A
+
+A(:) => all elems into single column vector
+
+[A, B] == [A B]
