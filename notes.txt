@@ -124,3 +124,17 @@ normalize to the mean of $x$.
 
 Too big: won't converge. Too small: converges slowly. Just right: big as
 possible before breaking.
+
+
+Week 2, Day 4
+
+Features and polynomial regression
+
+let features be functions of other features. Done.
+
+
+Normal Equation
+
+$\theta = (X^T X)^(-1) X^T y$ gives us optimal theta values, but since computing
+inverses is O(n^3), it doesn't work as well for large n and we might want to use
+gradient descent instead.
