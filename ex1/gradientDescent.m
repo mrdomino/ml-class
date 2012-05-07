@@ -9,7 +9,7 @@ J_history = zeros(num_iters, 1);
 
 for iter = 1:num_iters
 
-    gradient = 1 / m * sum(X' * (X * theta - y), 2);
+    gradient = 1 / m * X' * (X * theta - y);
     theta = theta - alpha * gradient;
 
     % Save the cost J in every iteration
