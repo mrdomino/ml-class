@@ -9,7 +9,7 @@ mu = mean(X);
 sigma = std(X);
 for i = 1:size(X, 1),
     for j = 1:size(X, 2),
-        X_norm(i, j) = (X(i, j) - sigma(j)) / mu(j);
+        X_norm(i, j) = (X(i, j) - mu(j)) / sigma(j);
     end
 end
 
