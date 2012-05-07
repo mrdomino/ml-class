@@ -216,3 +216,32 @@ max(A, [], 1) => column-wise max
 max(A, [], 2) => row-wise
 
 max(max(A)) => max elem
+
+
+Week 3
+
+Logistic regression
+
+Classification recap: $y\in{0,1}$. Linear regression doesn't work so well.
+
+Logistic regression gives us a hypothesis such that $0 \le h_\theta(x) \le 1$.
+
+For linear regression, we used $h_\theta(x) = \theta^T x$.
+For logistic regression, we use $h_\theta(x) = g(\theta^T x)$,
+where $g(z) = 1/(1 + e^{-z})$, the sigmoid (or logistic) function.
+
+The hypothesis $h_\theta(x)$ corresponds to our guess at $P(y=1|x;\theta)$, the
+probability that $y=1$ given $x$ parameterized by $\theta$.
+
+Since $y$ is binary, $P(y=0|x;\theta)$ is simply $1 - P(y=1|...)$.
+
+
+Decision boundary
+
+
+Cost function
+
+J(\theta) = 1/m sum cost
+
+cost = -log(h(x)) if y=1
+       -log(1 - h(x)) if y=0
