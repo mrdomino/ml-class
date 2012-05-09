@@ -1,3 +1,5 @@
+vim:ai:tw=80:ts=2:sw=2:et
+
 Week 1, Day 1
 
 Starting with ``Welcome''
@@ -245,3 +247,66 @@ J(\theta) = 1/m sum cost
 
 cost = -log(h(x)) if y=1
        -log(1 - h(x)) if y=0
+
+
+Simplified Cost Function and Gradient Descent
+
+Read "Maximum Likelihood Estimation" for more details.
+
+Gradient descent: same algorithm, different hypothesis function
+
+Vectorized form:
+
+$\theta = \theta - \alpha \sum_{i=1}^m [(h_\theta(x^(i)) - y^(i)) x^(i)]$
+
+
+Advanced Optimization
+
+Other algorithms better than gradient descent:
+
+- Conjugate gradient
+- BFGS
+- L-BFGS
+
+Don't need manually picked $\alpha$.
+
+Often faster, but more complex.
+
+Usage, e.g.:
+
+    [jVal, gradient] = costFunction(theta)
+
+Call with `fminunc`.
+
+
+Multi-class classification problems
+
+One-vs-all classification
+
+General idea: train classifiers per classes. For new input, pick the
+classifier that is maximal valued.
+
+
+## Regularization
+
+Problem of overfitting
+
+Overfitting: given too many features, the hypothesis can fit the training set
+well, but fail to generalize to new examples.
+
+Addressing overfitting:
+
+1. Reduce number of features.
+  - Manually select which features to keep.
+  - Model selection algorithm (later in course).
+2. Regularization.
+  - Keep all the features, but reduce the magnitude of the parameters.
+  - Works well when we have a lot of features, each of which contributes a bit
+    to predicting y.
+
+
+Cost function
+
+Small values found by adding magnitude of parameter to cost function.
+
+Penalizing values gives ``simpler'' hypotheses, less prone to overfitting.
