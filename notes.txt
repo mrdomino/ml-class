@@ -310,3 +310,11 @@ Cost function
 Small values found by adding magnitude of parameter to cost function.
 
 Penalizing values gives ``simpler'' hypotheses, less prone to overfitting.
+
+
+Regularized Linear Regression
+
+Add a term of $\lambda \sum_j=1^n \theta_j^2$.
+
+Regularized normal eqn: $(X^T X + \lambda mat)^{-1} X^T y$ where $mat$ has zeros
+on all diagonals except at $(0,0)$.
