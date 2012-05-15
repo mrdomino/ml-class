@@ -318,3 +318,40 @@ Add a term of $\lambda \sum_j=1^n \theta_j^2$.
 
 Regularized normal eqn: $(X^T X + \lambda mat)^{-1} X^T y$ where $mat$ has zeros
 on all diagonals except at $(0,0)$.
+
+
+Week 4
+
+Neural networks
+
+Regression algorithms suck with large numbers of features that are nonlinear.
+
+
+Brain learning: "one learning algorithm" hypothesis
+
+You can cut communication to chunks of the brain off and rewire them, and cause
+the auditory cortex or the somatosensory cortex to learn to see.
+
+
+Described networks use sigmoid function for neural activation
+
+
+Input layer, hidden layer, output layer
+
+Layers numbered from input (1) onwards towards output
+
+Terminology:
+
+$a_i^(j)$ is the ``activation'' of unit (neuron) $i$ in layer $j$.
+
+$\Theta^(j)$ is the matrix of weights controlling the function mapping layer $j$
+to layer $j+1$.
+
+Suppose $s_j$ neurons in layer j, $s_{j+1}$ in layer $j+1$, then $\Theta^(j)$
+has dimension $s_{j+1} \times (s_j + 1)$. That is, one row for each neuron in
+the next layer, and one column for each neuron in the current layer (with one
+extra for the bias unit).
+
+The bias unit is a constant 1; it is independent of the input, so it can be used
+to weight the overall output by some amount based on the weight assigned to its
+connection.
