@@ -355,3 +355,8 @@ extra for the bias unit).
 The bias unit is a constant 1; it is independent of the input, so it can be used
 to weight the overall output by some amount based on the weight assigned to its
 connection.
+
+It turns out that you can think of this type of neural network as just iterated
+logistic regression. Suppose you have one output unit $a_1^(3)$. It's computed
+as $a_1^(3) = g(\Theta^(2) a^(2))$. Then $\Theta^(2)$ is our feature set and
+$a^(2)$ is our input vector.
