@@ -363,3 +363,9 @@ $a^(2)$ is our input vector.
 
 
 Aside: XNOR simpler to learn than XOR.
+
+
+Computing AND with a 2-layer network: set bias weight $\Theta_0^(1) = -30$,
+$\Theta_1^(1) = 20$, $\Theta_2^(1) = 20$, and you have
+$a^(2) = g(-30 + 20 x_1 + 20 x_2)$, which is close to 1 for $x_1$ and $x_2$ both
+1, and close to 0 otherwise.
