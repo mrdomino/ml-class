@@ -360,3 +360,6 @@ It turns out that you can think of this type of neural network as just iterated
 logistic regression. Suppose you have one output unit $a_1^(3)$. It's computed
 as $a_1^(3) = g(\Theta^(2) a^(2))$. Then $\Theta^(2)$ is our feature set and
 $a^(2)$ is our input vector.
+
+
+Aside: XNOR simpler to learn than XOR.
