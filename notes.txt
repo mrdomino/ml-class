@@ -374,3 +374,16 @@ $a^(2) = g(-30 + 20 x_1 + 20 x_2)$, which is close to 1 for $x_1$ and $x_2$ both
 XNOR can be computed with a neural net with one hidden layer: first hidden node
 computes (NOT x1) AND (NOT x2), second hidden node computes x1 AND x2, output
 node computes (hidden_1 OR hidden_2).
+
+
+Week 5
+
+Neural network learning
+
+For neural networks, the cost function $J(\Theta)$ is like the cost function for
+logistic regression, except we're also summing for each output node and
+regularizing for each $\Theta_{i,j}^(l)$ ($i$th node of current layer, $j$th
+node of next layer, $l$th layer in the network.) So (assuming $K$ output nodes):
+
+$J(\Theta) = \sum_{i=1}^m \sum_{k=1}^K y_k^(i) \log(h_\Theta(x^(i)))_k
+                                     + (1 - y_k^(i) ...$
