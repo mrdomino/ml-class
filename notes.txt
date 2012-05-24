@@ -387,3 +387,7 @@ node of next layer, $l$th layer in the network.) So (assuming $K$ output nodes):
 
 $J(\Theta) = \sum_{i=1}^m \sum_{k=1}^K y_k^(i) \log(h_\Theta(x^(i)))_k
                                      + (1 - y_k^(i) ...$
+
+Backpropagation: feed-forward but in reverse. Compute the error term
+$\delta^(L) = y^(L) - a^(L)$. Compute $\delta$ for the other layers. This gives
+us the gradient for $\Theta$, but it's complicated to show exactly how.
