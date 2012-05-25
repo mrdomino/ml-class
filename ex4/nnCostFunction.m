@@ -63,22 +63,23 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
+% Feed-forward computation
+
+a1 = [ones(m, 1), X];
+
+z2 = Theta1 * a1;
+a2 = sigmoid(z2);
+a2 = [ones(size(a2, 1)), a2];
+
+z3 = Theta2 * a2;
+a3 = sigmoid(z3);
 
 
+% Cost function
 
+J = 1 / m * (-y * log(a3) - (1 .- y) * log(1 .- a3));
 
-
-
-
-
-
-
-
-
-
-
-
-
+% Gradient TODO
 
 % -------------------------------------------------------------
 
