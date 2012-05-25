@@ -391,3 +391,8 @@ $J(\Theta) = \sum_{i=1}^m \sum_{k=1}^K y_k^(i) \log(h_\Theta(x^(i)))_k
 Backpropagation: feed-forward but in reverse. Compute the error term
 $\delta^(L) = y^(L) - a^(L)$. Compute $\delta$ for the other layers. This gives
 us the gradient for $\Theta$, but it's complicated to show exactly how.
+
+
+Gradient checking: Numerical approximation of $\deriv J$ by
+$(J(\theta + \epsilon) - J(\theta - \epsilon)) / 2\epsilon$. Use this to verify
+that backpropagation is working correctly.
