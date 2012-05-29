@@ -85,6 +85,19 @@ for i = 1:m,
 end
 J = J / m;
 
+reg = 0;
+for j = 1:hidden_layer_size,
+  reg = reg + Theta1(j, 2:end) * Theta1(j, 2:end)';
+end
+
+for j = 1:num_labels,
+  reg = reg + Theta2(j, 2:end) * Theta2(j, 2:end)';
+end
+
+reg = reg * lambda / (2 * m);
+
+J = J + reg;
+
 % Gradient TODO
 
 % -------------------------------------------------------------
