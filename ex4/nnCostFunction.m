@@ -75,15 +75,24 @@ z3 = a2 * Theta2';
 a3 = sigmoid(z3);
 
 
+% Construct output vectors
+
+y_vecs = zeros(m, num_labels);
+for i = 1:m,
+  y_vecs(i, y(i)) = 1;
+end
+
+
 % Cost function
 
 for i = 1:m,
-  y_vec = zeros(num_labels, 1);
-  y_vec(y(i)) = 1;
+  y_vec = y_vecs(i, :)';
   J = J + ((-y_vec)' * log(a3(i, :)')) ...
         - ((1 .- y_vec)' * log(1 .- a3(i, :)'));
 end
 J = J / m;
+
+% Regularization
 
 reg = 0;
 for j = 1:hidden_layer_size,
