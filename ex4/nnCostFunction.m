@@ -65,14 +65,14 @@ Theta2_grad = zeros(size(Theta2));
 
 % Feed-forward computation
 
-a1 = [ones(m, 1), X];
+A1 = [ones(m, 1), X];
 
-z2 = a1 * Theta1';
-a2 = sigmoid(z2);
-a2 = [ones(size(a2, 1), 1), a2];
+Z2 = A1 * Theta1';
+A2 = sigmoid(Z2);
+A2 = [ones(m, 1), A2];
 
-z3 = a2 * Theta2';
-a3 = sigmoid(z3);
+Z3 = A2 * Theta2';
+A3 = sigmoid(Z3);
 
 
 % Construct output vectors
@@ -87,8 +87,8 @@ end
 
 for i = 1:m,
   y_vec = y_vecs(i, :)';
-  J = J + ((-y_vec)' * log(a3(i, :)')) ...
-        - ((1 .- y_vec)' * log(1 .- a3(i, :)'));
+  J = J + ((-y_vec)' * log(A3(i, :)')) ...
+        - ((1 .- y_vec)' * log(1 .- A3(i, :)'));
 end
 J = J / m;
 
