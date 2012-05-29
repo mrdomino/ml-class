@@ -87,8 +87,9 @@ end
 
 for i = 1:m,
   y_vec = y_vecs(i, :)';
-  J = J + ((-y_vec)' * log(A3(i, :)')) ...
-        - ((1 .- y_vec)' * log(1 .- A3(i, :)'));
+  a3 = A3(i, :)';
+  J = J + ((-y_vec)' * log(a3)) ...
+        - ((1 .- y_vec)' * log(1 .- a3));
 end
 J = J / m;
 
