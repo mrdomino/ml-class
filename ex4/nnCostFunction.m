@@ -68,34 +68,28 @@ Theta2_grad = zeros(size(Theta2));
 A1 = [ones(m, 1), X];
 
 Z2 = A1 * Theta1';
-A2 = sigmoid(Z2);
-A2 = [ones(m, 1), A2];
+A2 = [ones(m, 1), sigmoid(Z2)];
 
 Z3 = A2 * Theta2';
 A3 = sigmoid(Z3);
 
+% Unroll y
+y = repmat(1:10, 5000, 1) == repmat(y, 1, 10);
 
-% Construct output vectors
-
-y_vecs = zeros(m, num_labels);
-for i = 1:m,
-  y_vecs(i, y(i)) = 1;
-end
+% Cost function
+J = sum(sum(-y .* log(A3) .- (1 .- y) .* log(1 .- A3))) / m;
 
 
-% Cost function and backpropagation
+% Backpropagation
 
 for i = 1:m,
-  y_vec = y_vecs(i, :)';
+  y_vec = y(i, :)';
   a1 = A1(i, :)';
   a2 = A2(i, :)';
   a3 = A3(i, :)';
   z2 = Z2(i, :)';
 
-  J = J + ((-y_vec)' * log(a3)) ...
-        - ((1 .- y_vec)' * log(1 .- a3));
-
-  % Backpropagation step 2
+  % Step 2
   delta3 = a3 .- y_vec;
   % Step 3
   delta2 = Theta2' * delta3 .* sigmoidGradient([1; z2]);
@@ -104,7 +98,6 @@ for i = 1:m,
   Theta1_grad = Theta1_grad .+ delta2 * a1';
   Theta2_grad = Theta2_grad .+ delta3 * a2';
 end
-J = J / m;
 
 Theta1_grad = Theta1_grad ./ m;
 Theta2_grad = Theta2_grad ./ m;
