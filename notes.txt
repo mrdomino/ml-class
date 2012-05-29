@@ -396,3 +396,16 @@ us the gradient for $\Theta$, but it's complicated to show exactly how.
 Gradient checking: Numerical approximation of $\deriv J$ by
 $(J(\theta + \epsilon) - J(\theta - \epsilon)) / 2\epsilon$. Use this to verify
 that backpropagation is working correctly.
+
+
+Week 6
+
+Evaluating a hypothesis: split your data into a training set and test set. If
+the error is low on the training set and high on the test set, your hypothesis
+is probably overfitting.
+
+For selecting polynomial features, split into three groups: training,
+validation, and test. Select the degree of polynomial that minimizes cost on the
+validation set. Report generalization error based on the test set. (Otherwise
+the test set will have been fit to the degree of the polynomial so the cost will
+be underestimated.)
