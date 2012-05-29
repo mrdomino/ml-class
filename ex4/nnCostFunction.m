@@ -77,7 +77,13 @@ a3 = sigmoid(z3);
 
 % Cost function
 
-J = 1 / m * (-y * log(a3) - (1 .- y) * log(1 .- a3));
+for i = 1:m,
+  y_vec = zeros(num_labels, 1);
+  y_vec(y(i)) = 1;
+  J = J + ((-y_vec)' * log(a3(i, :)')) ...
+        - ((1 .- y_vec)' * log(1 .- a3(i, :)'));
+end
+J = J / m;
 
 % Gradient TODO
 
