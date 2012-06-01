@@ -9,7 +9,7 @@ function submit(partId, webSubmit)
   end
 
   if ~exist('webSubmit', 'var') || isempty(webSubmit)
-    webSubmit = 0; % submit directly by default 
+    webSubmit = 0; % submit directly by default
   end
 
   % Check valid partId
@@ -24,7 +24,7 @@ function submit(partId, webSubmit)
   if ~exist('ml_login_data.mat','file')
     [login password] = loginPrompt();
     save('ml_login_data.mat','login','password');
-  else  
+  else
     load('ml_login_data.mat');
     [login password] = quickLogin(login, password);
     save('ml_login_data.mat','login','password');
@@ -35,8 +35,8 @@ function submit(partId, webSubmit)
     return
   end
 
-  fprintf('\n== Connecting to ml-class ... '); 
-  if exist('OCTAVE_VERSION') 
+  fprintf('\n== Connecting to ml-class ... ');
+  if exist('OCTAVE_VERSION')
     fflush(stdout);
   end
 
@@ -106,7 +106,7 @@ end
 
 % ================== CONFIGURABLES FOR EACH HOMEWORK ==================
 
-function id = homework_id() 
+function id = homework_id()
   id = '5';
 end
 
@@ -152,7 +152,7 @@ function out = output(partId, auxstring)
         validationCurve(X, y, Xval, yval);
     out = sprintf('%0.5f ', ...
         [lambda_vec(:); error_train(:); error_val(:)]);
-  end 
+  end
 end
 
 % ====================== SERVER CONFIGURATION ===========================
@@ -179,12 +179,12 @@ function src = source(partId)
       flist = src_files{partId};
       for i = 1:numel(flist)
           fid = fopen(flist{i});
-          if (fid == -1) 
+          if (fid == -1)
             error('Error opening %s (is it missing?)', flist{i});
           end
           line = fgets(fid);
           while ischar(line)
-            src = [src line];            
+            src = [src line];
             line = fgets(fid);
           end
           fclose(fid);
@@ -265,7 +265,7 @@ end
 function [login password] = loginPrompt()
   % Prompt for password
   [login password] = basicPrompt();
-  
+
   if isempty(login) || isempty(password)
     login = []; password = [];
   end
@@ -294,21 +294,21 @@ end
 % =============================== SHA-1 ================================
 
 function hash = sha1(str)
-  
+
   % Initialize variables
   h0 = uint32(1732584193);
   h1 = uint32(4023233417);
   h2 = uint32(2562383102);
   h3 = uint32(271733878);
   h4 = uint32(3285377520);
-  
+
   % Convert to word array
   strlen = numel(str);
 
   % Break string into chars and append the bit 1 to the message
   mC = [double(str) 128];
   mC = [mC zeros(1, 4-mod(numel(mC), 4), 'uint8')];
-  
+
   numB = strlen * 8;
   if exist('idivide')
     numC = idivide(uint32(numB + 65), 512, 'ceil');
@@ -317,7 +317,7 @@ function hash = sha1(str)
   end
   numW = numC * 16;
   mW = zeros(numW, 1, 'uint32');
-  
+
   idx = 1;
   for i = 1:4:strlen + 1
     mW(idx) = bitor(bitor(bitor( ...
@@ -327,7 +327,7 @@ function hash = sha1(str)
                   uint32(mC(i+3)));
     idx = idx + 1;
   end
-  
+
   % Append length of message
   mW(numW - 1) = uint32(bitshift(uint64(numB), -32));
   mW(numW) = uint32(bitshift(bitshift(uint64(numB), 32), -32));
@@ -337,7 +337,7 @@ function hash = sha1(str)
     cSt = (cId - 1) * 16 + 1;
     cEnd = cId * 16;
     ch = mW(cSt : cEnd);
-    
+
     % Extend the sixteen 32-bit words into eighty 32-bit words
     for j = 17 : 80
       ch(j) = ch(j - 3);
@@ -346,14 +346,14 @@ function hash = sha1(str)
       ch(j) = bitxor(ch(j), ch(j - 16));
       ch(j) = bitrotate(ch(j), 1);
     end
-  
+
     % Initialize hash value for this ch
     a = h0;
     b = h1;
     c = h2;
     d = h3;
     e = h4;
-    
+
     % Main loop
     for i = 1 : 80
       if(i >= 1 && i <= 20)
@@ -369,7 +369,7 @@ function hash = sha1(str)
         f = bitxor(bitxor(b, c), d);
         k = uint32(3395469782);
       end
-      
+
       t = bitrotate(a, 5);
       t = bitadd(t, f);
       t = bitadd(t, e);
@@ -380,7 +380,7 @@ function hash = sha1(str)
       c = bitrotate(b, 30);
       b = a;
       a = t;
-      
+
     end
     h0 = bitadd(h0, a);
     h1 = bitadd(h1, b);
@@ -391,7 +391,7 @@ function hash = sha1(str)
   end
 
   hash = reshape(dec2hex(double([h0 h1 h2 h3 h4]), 8)', [1 40]);
-  
+
   hash = lower(hash);
 
 end

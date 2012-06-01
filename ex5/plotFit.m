@@ -11,7 +11,7 @@ hold on;
 % an idea of how the fit will vary outside the range of the data points
 x = (min_x - 15: 0.05 : max_x + 25)';
 
-% Map the X values 
+% Map the X values
 X_poly = polyFeatures(x, p);
 X_poly = bsxfun(@minus, X_poly, mu);
 X_poly = bsxfun(@rdivide, X_poly, sigma);
