@@ -409,3 +409,13 @@ validation, and test. Select the degree of polynomial that minimizes cost on the
 validation set. Report generalization error based on the test set. (Otherwise
 the test set will have been fit to the degree of the polynomial so the cost will
 be underestimated.)
+
+
+High bias: your curve doesn't fit the training or test data properly
+(underfitting).
+
+High variance: your curve overfits the training data, failing to predict the
+test data.
+
+Adding more examples can help with high variance, but probably won't help with
+high bias.
