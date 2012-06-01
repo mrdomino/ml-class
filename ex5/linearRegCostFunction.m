@@ -20,14 +20,10 @@ grad = zeros(size(theta));
 %
 
 
+theta_reg = theta(2:end);
 
-
-
-
-
-
-
-
+J = 1 / (2 * m) * (X * theta .- y)' * (X * theta .- y) ...
+  + lambda / (2 * m) * theta_reg' * theta_reg;
 
 
 % =========================================================================
