@@ -27,7 +27,7 @@ J = 1 / (2 * m) * (h .- y)' * (h .- y) ...
   + lambda / (2 * m) * theta_reg' * theta_reg;
 
 grad = 1 / m * ((h .- y)' * X)';
-grad(2:end) = grad(2:end) .+ lambda / m * theta(2:end);
+grad(2:end) = grad(2:end) .+ lambda / m * theta_reg;
 
 
 % =========================================================================
