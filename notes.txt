@@ -419,3 +419,37 @@ test data.
 
 Adding more examples can help with high variance, but probably won't help with
 high bias.
+
+
+Week 6
+
+Prioritizing work: get something quick and dirty running, then refine it.
+
+Use error analysis to test hypotheses numerically. That is: look at errors your
+algorithm makes on the cross-validation set. For those errors, see if you can
+come up with modifications to the algorithm that'd improve performance on them.
+Classify errors into different types (e.g. for spam: pharma, phishing,
+discounts, ...) and see if some type has more than the others.
+
+Use a numerical metric to test experiments -- if you think something will
+improve performance, test the error rate with and without it.
+
+Pure error rate can be misleading for skewed classes (e.g. where y = 0 almost
+always, like for a cancer test). In those cases, there are better metrics that
+can be used based on the rate of false positives or false negatives vs. true
+positives/negatives. These are ``precision'' and ``recall''.
+
+Precision: true positives / predicted positives, or
+           true positives / (true positives + false positives)
+
+Recall: true positives / actual positives, or
+        true positives / (true positives + false negatives)
+
+It's impossible for a learning algorithm that isn't learning (e.g. predicting y
+= 0 constantly) to have both high precision and high recall, so these can give a
+better sense for actual performance.
+
+Deciding between precision and recall can be tricky. Taking the average of the
+two is a poor idea since it removes the benefit of using them as opposed to just
+pure error rate. Instead, you can use the F score: $2 PR / (P + R)$. The higher,
+the better.
