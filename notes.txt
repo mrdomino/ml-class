@@ -453,3 +453,29 @@ Deciding between precision and recall can be tricky. Taking the average of the
 two is a poor idea since it removes the benefit of using them as opposed to just
 pure error rate. Instead, you can use the F score: $2 PR / (P + R)$. The higher,
 the better.
+
+
+General rule of thumb: more data is better.
+
+
+Week 7
+
+Support vector machines
+
+Can be thought of as a variant on logistic regression but with a different cost
+function. Instead of terms $C_1 = -log g(z)$ and $C_2 = -log (1 - g(z))$ (where
+$C_1 is small when $\theta^T x > 0$ and $C_2$ is small when $\theta^T x < 0$),
+we set $C_1 = 0$ whenever $z = \theta^T x >= 1$ and linearly increasing as $z$
+decreases, and $C_2 = 0$ whenever $z = \theta^T x <= -1$ and linearly increasing
+as $z$ increases.
+
+We also use different parameterization for the cost function. We drop the $1/m$
+term. For regularization, if $J = A + \lambda / 2 B$ where $B$ is the
+regularization term, we use $C$ instead of $\lambda$: $J = C A + 1/2 B$. If we
+set $C = 1 / \lambda$, both cost functions will find us the same $\theta$.
+
+
+SVMs are sometimes called ``large margin classifiers'' because they produce
+hypotheses that have large distance between the decision boundary line and any
+examples. (This was very visual -- challenging to explain in text; recommend
+watching ``Large Margin Intuition''.)
