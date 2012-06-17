@@ -23,11 +23,27 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+C_guesses = [0.01; 0.03; 0.1; 0.3; 1; 3; 10; 30];
+sigma_guesses = C_guesses;
+best_error = Inf;
 
+for i = 1:length(C_guesses),
+  for j = 1:length(sigma_guesses),
+    C_guess = C_guesses(i);
+    sigma_guess = sigma_guesses(j);
 
+    model = svmTrain(X, y, C_guess,
+                     @(x1, x2) gaussianKernel(x1, x2, sigma_guess));
+    predictions = svmPredict(model, Xval);
+    error = mean(double(predictions ~= yval));
 
-
-
+    if (error < best_error)
+      best_error = error;
+      C = C_guess;
+      sigma = sigma_guess;
+    end
+  end
+end
 
 % =========================================================================
 
