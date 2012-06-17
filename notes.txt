@@ -479,3 +479,21 @@ SVMs are sometimes called ``large margin classifiers'' because they produce
 hypotheses that have large distance between the decision boundary line and any
 examples. (This was very visual -- challenging to explain in text; recommend
 watching ``Large Margin Intuition''.)
+
+
+In order to build nonlinear classifiers, SVMs use kernels -- "landmark" vectors
+of the same dimensionality as the input vectors, with a similarity function
+outputting values close to 1 for inputs close to a landmark, and close to 0 for
+inputs far from a landmark.
+
+So instead of computing $\theta_0 + \theta_1 x_1 + \ldots + \theta_n x_n$, we
+compute $\theta_0 + \theta_1 f_1 + \ldots$ where $f_i$ are features defined as
+the similarity between $x$ and some landmark $l_i$.
+
+We pick one landmark for each input to the training algorithm to construct
+features $f_1$ through $f_m$.
+
+One common kernel is the Gaussian kernel, which uses similarity function
+$sim(x, y) = exp(- ||x - y||^2 / \sigma^2$, where $\sigma$ is a parameter like
+$C$ that can be varied -- small $\sigma$ gives sharp drop-offs, whereas large
+$\sigma$ gives more gradual drop-offs.
