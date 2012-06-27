@@ -21,11 +21,18 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i = 1:length(idx),
+  best_cost = Inf;
+  for j = 1:K,
+    x = X(i, :)';
+    mu = centroids(j, :)';
+    cost = (x .- mu)' * (x .- mu);
+    if cost < best_cost,
+      best_cost = cost;
+      idx(i) = j;
+    end
+  end
+end
 
 % =============================================================
 
