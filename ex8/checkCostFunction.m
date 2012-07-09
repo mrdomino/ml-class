@@ -1,10 +1,10 @@
 function checkCostFunction(lambda)
-%CHECKCOSTFUNCTION Creates a collaborative filering problem 
+%CHECKCOSTFUNCTION Creates a collaborative filering problem
 %to check your cost function and gradients
-%   CHECKCOSTFUNCTION(lambda) Creates a collaborative filering problem 
-%   to check your cost function and gradients, it will output the 
-%   analytical gradients produced by your code and the numerical gradients 
-%   (computed using computeNumericalGradient). These two gradient 
+%   CHECKCOSTFUNCTION(lambda) Creates a collaborative filering problem
+%   to check your cost function and gradients, it will output the
+%   analytical gradients produced by your code and the numerical gradients
+%   (computed using computeNumericalGradient). These two gradient
 %   computations should result in very similar values.
 
 % Set lambda
